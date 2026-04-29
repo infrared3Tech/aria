@@ -1,34 +1,41 @@
-# Aria SDR OS Notes
+# Aria restore point
 
-This repo captures the proposed integrations for the Coins.ph SDR operating system sheet.
+This repository is a durable Git-backed checkpoint for Aria's current SDR operating state.
 
-## Planned additions
+## What to read first
+1. `STATE_SNAPSHOT.md` — the durable operating-state snapshot
+2. `RESTORE.md` — how to bring Aria back from this checkpoint
+3. `CHANGELOG.md` — versioned history of checkpoint updates
 
-### 1. Signals / Watchlist tab
-Track adjacent entities that are not yet core accounts, such as:
-- remittance brands
-- stablecoin issuers
-- payment networks
-- wallet apps
-- cross-border payout providers
-- fintechs entering crypto rails
+## Current checkpoint
+- Repository: `https://github.com/infrared3Tech/aria.git`
+- Current main-line checkpoint: `edb3dda`
+- Suggested restore tag: `aria-checkpoint-2026-04-29`
 
-### 2. Trigger readiness scoring
-Score entities by:
-- current fit
-- trigger readiness
-- adjacency
-- priority
+## Quick restore
+```bash
+git clone https://github.com/infrared3Tech/aria.git
+cd aria
+git checkout edb3dda
+```
 
-### 3. Operating rule
-If an entity is adjacent but not yet a confirmed account, place it in the watchlist and score it by trigger readiness, not fit alone.
+If you already have the repo locally:
+```bash
+git fetch --tags origin
+git checkout edb3dda
+```
 
-### 4. Adjacent vertical examples
-- remittance networks
-- settlement partners
-- stablecoin programs
-- global fintechs entering the Philippines
-- payments brands with crypto distribution ambitions
+## What this repo preserves
+- the code and docs snapshot committed at the checkpoint
+- the restore instructions
+- the structured operating-state snapshot
+- the changelog for future checkpoint updates
 
-### 5. Example signal
-USDPT / Western Union should be treated as an adjacent high-value watch signal.
+## What this repo does not preserve
+- auth tokens
+- live chat/session state
+- model internals or weights
+- any uncommitted local changes made after the checkpoint
+
+## Safety note
+If you want to make risky changes later, create a new commit or tag first so you can always roll back to this checkpoint.

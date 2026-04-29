@@ -10,7 +10,9 @@ This repo is a durable checkpoint for Aria's SDR operating state.
 2. Read:
    - `README.md`
    - `STATE_SNAPSHOT.md`
+   - `CHANGELOG.md`
 3. Re-apply the rules captured there.
+4. If you want the exact checkpoint, check out tag `aria-checkpoint-2026-04-29` or commit `edb3dda`.
 
 ### Best restore
 In addition to the files above, re-load the following into the active agent context:
